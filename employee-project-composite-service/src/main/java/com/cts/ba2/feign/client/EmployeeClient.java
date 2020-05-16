@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import com.cts.ba2.model.Employee;
-
-@FeignClient(url="localhost:8099/employee", name="Employee-Service")
+//", 
+@FeignClient(name="Employee-Service")
 public interface EmployeeClient {
 
 	

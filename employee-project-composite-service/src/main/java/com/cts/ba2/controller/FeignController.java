@@ -50,7 +50,7 @@ public class FeignController {
 		EmployeeProject employeeProject = new EmployeeProject(employee.getEmployeeId(), 
 				employee.getEmployeeName(),
 				employee.getEmployeeAddress(),
-				employee.getEmployeeSallary(),
+				employee.getEmployeeSalary(),
 				employee.getProjectId(),
 				project.getProjectName(),
 				project.getProjectOwner());

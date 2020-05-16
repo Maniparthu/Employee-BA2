@@ -15,7 +15,7 @@ public class EmployeeProject {
 	
 	private String employeeAddress;
 	
-	private int employeeSallary;
+	private int employeeSalary;
 	
 	private Long projectId;
 	
