@@ -60,6 +60,7 @@ public class EmployeeController {
 		//loging
 		String methodName = "listOfEmployee()";
 		logger.info(methodName+" called");
+//		throw new RuntimeException();
 		
 		return new ResponseEntity<>(employeeService.listOfEmployee(), HttpStatus.OK);
 	}
@@ -126,7 +127,7 @@ public class EmployeeController {
 		String methodName = "listOfEmployee_Fallback()";
 		logger.info(methodName+" called");
 		
-		Employee employee = new Employee(999L, "fallback", "fallback", 999, 999L);
+		Employee employee = new Employee();
 		return new ResponseEntity<>(employee, HttpStatus.OK);
 	}
 	

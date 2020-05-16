@@ -61,6 +61,7 @@ public class EmployeeServiceImpl implements IEmployeeService{
 		}
 		
 		else {
+			logger.error("ID NOT FOUND");
 			throw new EmployeeNotFoundException("Employee ID : "+id+" Not Found");
 		}
 	}
