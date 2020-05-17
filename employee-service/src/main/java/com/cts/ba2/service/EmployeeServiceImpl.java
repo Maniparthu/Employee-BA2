@@ -42,7 +42,7 @@ public class EmployeeServiceImpl implements IEmployeeService{
 		//loging
 		String methodName = "listOfEmployeeService()";
 		logger.info(methodName+" called");
-		
+//		System.out.println(employeeRepository.findAll());
 		return employeeRepository.findAll();
 	}
 	
