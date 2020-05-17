@@ -1,5 +1,7 @@
 package com.cts.ba2;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -14,6 +16,7 @@ import org.springframework.security.web.AuthenticationEntryPoint;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+	Logger logger=LoggerFactory.getLogger(this.getClass());
 
 	@Value("${app.security.user}")
 	private String userName;
@@ -23,8 +26,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Value("${app.security.role}")	
 	private String role;
-	@Autowired
-	private SecurityEntryPoint authenticationEntryPoint;
+//	@Autowired
+//	private SecurityEntryPoint authenticationEntryPoint;
 	
 	@Bean
 	public BCryptPasswordEncoder bCypt() {
@@ -35,7 +38,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		// TODO Auto-generated method stub
 		
-		auth.inMemoryAuthentication().withUser(userName).password(password).roles(role);
+		auth.inMemoryAuthentication().withUser(userName).password(password).roles(role).and()
+		.withUser("debu").password(password).roles("USER", "ADMIN");
 		
 	
 	}
@@ -43,9 +47,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		// TODO Auto-generated method stub
+	
+//		http.csrf().disable().authorizeRequests().anyRequest().authenticated().and().httpBasic().authenticationEntryPoint(authenticationEntryPoint);
 		
-		http.csrf().disable().authorizeRequests().anyRequest().authenticated().and().httpBasic().authenticationEntryPoint(authenticationEntryPoint);
-		
+		http.httpBasic().and().authorizeRequests()
+		.antMatchers("/employee-service/admin").hasRole("ADMIN")
+		.antMatchers("/employee-service/user").hasRole("USER")
+		.antMatchers("/project-service/user").hasRole("USER")
+		.antMatchers("/project-service/admin").hasRole("ADMIN")
+		.antMatchers("/composite-service/user").hasRole("USER")
+		.and().csrf().disable().headers()
+		.frameOptions().disable();
+	
+	
 	}
 	
 	

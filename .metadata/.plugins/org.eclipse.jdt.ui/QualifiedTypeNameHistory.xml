@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.springframework.security.config.annotation.web.configuration.EnableWebSecurity"/>
+<fullyQualifiedTypeName name="springfox.documentation.spring.web.plugins.Docket"/>
+<fullyQualifiedTypeName name="org.springframework.context.annotation.Bean"/>
+<fullyQualifiedTypeName name="springfox.documentation.spi.DocumentationType"/>
+<fullyQualifiedTypeName name="com.netflix.eureka.registry.rule.AlwaysMatchInstanceStatusRule"/>
+<fullyQualifiedTypeName name="brave.sampler.Sampler"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
+<fullyQualifiedTypeName name="com.netflix.zuul.ZuulFilter"/>
+<fullyQualifiedTypeName name="com.netflix.zuul.context.RequestContext"/>
 <fullyQualifiedTypeName name="org.slf4j.LoggerFactory"/>
+<fullyQualifiedTypeName name="org.slf4j.Logger"/>
 </qualifiedTypeNameHistroy>
